@@ -11,27 +11,34 @@ function playRound(pSelection, cSelection) {
        return ("Player wins! Paper beats Rock");
     } else if (pSelection === "scissors" && cSelection === "paper") {
         return ("Player wins! Scissors beats Paper");
-    } else {
+    }
+    else {
         return (`Computer wins! ${cSelection} beats ${pSelection}`);
     }
 }
 function game(){
     let compScore=0;
     let playerScore=0;
+    const itemList = ['rock', 'paper', 'scissors'];
     for (let i = 0; i < 5; i++) {
         const pSelection = prompt("Please select 'rock, paper, scissors'").toLowerCase();
+        if (!itemList.includes(pSelection)){
+            i--;
+            alert("Wrong input!");
+            continue;
+        }
         const cSelection = computerPlay();
-        let Results = playRound(pSelection, cSelection);
-        if (Results.startsWith("Player wins")) {
+        let results = playRound(pSelection, cSelection);
+        if (results.startsWith("Player wins")) {
             playerScore++;
-        } else if (Results.startsWith("Computer wins")) {
+        } else if (results.startsWith("Computer wins")) {
             compScore++;
         }
-        else if (Results.startsWith("It's a tie")){
+        else if (results.startsWith("It's a tie")){
             playerScore++;
             compScore++;
         }
-        console.log(Results);
+        console.log(results);
     }
         if (compScore > playerScore){
             console.log(`Computer Wins!! Player ${playerScore} - Computer ${compScore}`);
