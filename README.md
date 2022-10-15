@@ -1,2 +1,2 @@
 # JS-project
-https://github.com/LIGINKALLARACKAL/JS-project.git
+https://liginkallarackal.github.io/JS-project/
